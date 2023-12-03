@@ -40,6 +40,19 @@ createApp({
           console.log(error);
         });
     },
+    deleteTask(index){
+      const data = new FormData();
+      data.append("deleteTask", index);
+      axios
+        .post(this.apiUrl, data)
+        .then((response)=>{
+          console.log(response.data);
+          this.todoList = response.data;  
+        })
+        .catch((error)=> {
+          console.log(error);
+      });
+    },
   },
 
   mounted() {

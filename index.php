@@ -33,7 +33,7 @@
               <h1 class="display-1 text-white">Todo List</h1>
               <ul class="list-group list-group-flush border border-1 rounded">
               <li v-for="(task,index) in todoList" :key="index" class="list-group-item ">
-                {{ task.text }} - {{ task.done ? 'Completato' : 'Da fare' }}
+                {{ task.text }} - {{ task.done ? 'Completato' : 'Da fare' }} <span @click="deleteTask(index)">x</span>
               </li>
               </ul>
             </div>
