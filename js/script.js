@@ -11,9 +11,15 @@ createApp({
   methods: {
     readList(){
       axios
-      .get(this.apiUrl)
-      .then((response)=>{
+      .get(this.apiUrl).then((response)=>{
         this.todoList = response.data;       
+      })
+      .catch(function(error){
+        // handle error
+        console.log(error);
+      })
+      .finally(function(){
+        //always executed
       });     
     },
     addTask(){
@@ -23,7 +29,7 @@ createApp({
         return;
       }
       const data = new FormData();
-      data.append("task", this.newTask);
+      data.append("text", this.newTask);
       axios
         .post(this.apiUrl, data)
         .then((response)=>{
